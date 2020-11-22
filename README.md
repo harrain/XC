@@ -2,8 +2,9 @@
 iOS自动化单元测试示例
 
 ## 一、前言： ##
-UITest的单元测试能最大限度的解放测试妹妹的双手，当然也会给程序员带来巨大工作量，完整的测试代码估计是项目代码的两倍，另外大家可以自行百度 Xcode Coverage 查看测试代码覆盖率，这篇文章只讲如何在工程中用XCTest框架做单元测试。
+UITest的单元测试能最大限度的解放手工，当然也会给程序员带来额外工作量，完整的测试代码估计是项目代码的两倍，另外大家可以自行百度 Xcode Coverage 查看测试代码覆盖率，这里只讲如何在工程中用XCTest框架做单元测试。
 其中主要介绍了，用六个按钮示意的UITests使用和性能测试、异步测试的。
+
 ## 二、创建工程： ##
 先创建个名字为 XCTest 的示例工程：
 ![这里写图片描述](http://img.blog.csdn.net/20171125144804085?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhlbmdhbmcwMDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
@@ -203,6 +204,8 @@ XCTFail(format…) //生成一个失败的测试;
  //里面包含了UIAccessibility中的部分属性
 ```
 
-## 五、结尾：##
-如果大家觉得这篇文章和示例工程代码有用的话，点个赞，在github 上给个小星星，多谢。
-博客地址：http://blog.csdn.net/zhengang007/
+## 五、添加删除照片自动化
+`[PHAssetChangeRequest deleteAssets:@[obj]];` 删除照片一次只能删一张。
+
+XCUITest `self addUIInterruptionMonitorWithDescription:@"Allow \"XC\" to delete this photo?" handler`  监测删除照片时的系统弹窗，并点掉
+
